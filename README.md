@@ -1,247 +1,320 @@
+<div align="center">
+
 # ⚡ SparkEnergies
 
-### An Advanced Electricity Bill Management and Distribution Platform
+### **Smart Electricity Billing & Distribution Platform**
 
-![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=flat-square\&logo=php\&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-InnoDB-4479A1?style=flat-square\&logo=mysql\&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=flat-square\&logo=bootstrap\&logoColor=white)
-![Course](https://img.shields.io/badge/Course-CSE370%3A%20Database%20Systems-red?style=flat-square)
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=00C853&center=true&vCenter=true&width=700&lines=Automated+Electricity+Billing;Smart+Meter+Management;Digital+Wallet+%26+Payments;Field+Technician+Operations;3NF+Database+Architecture;Built+for+CSE370+%7C+BRAC+University" alt="Typing SVG" />
+
+<br>
+
+<img src="https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+<img src="https://img.shields.io/badge/MySQL-InnoDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+<img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+<img src="https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+
+<br>
+
+<img src="https://img.shields.io/badge/Database-3NF-success?style=flat-square" alt="3NF">
+<img src="https://img.shields.io/badge/Architecture-Full--Stack-blue?style=flat-square" alt="Full Stack">
+<img src="https://img.shields.io/badge/Course-CSE370-red?style=flat-square" alt="CSE370">
+<img src="https://img.shields.io/badge/University-BRAC%20University-orange?style=flat-square" alt="BRAC University">
+
+<br><br>
+
+**A database-driven electricity management ecosystem built to make utility billing smarter, safer, and more transparent.**
+
+<br>
+
+[📖 Project Report](Document/project_report.pdf) •
+[🗄️ Database Schema](Database/sparkenergies.sql) •
+[🧩 ER Diagram](Document/ER_diagram.png) •
+[📊 Schema Diagram](Document/schema_diagram.png)
+
+</div>
+
+---
+
+## 🧭 Navigation
+
+* [✨ Overview](#-overview)
+* [🎯 Objectives](#-objectives)
+* [🏗️ Architecture](#️-architecture)
+* [👨‍💼 Administrator](#-administrator-dashboard)
+* [👨‍🔧 Technician](#-field-technician-console)
+* [👤 Customer](#-customer-portal)
+* [🔐 Business Logic](#-business-logic--database-integrity)
+* [🗄️ Database](#️-database-design)
+* [🛠️ Technology Stack](#️-technology-stack)
+* [📁 Repository](#-repository-structure)
+* [🚀 Installation](#-installation--setup)
+* [👥 Team](#-team)
+* [🎓 Academic Information](#-academic-information)
+
+---
+
+# ✨ Overview
 
 **SparkEnergies** is a full-stack electricity bill management and distribution platform developed for **CSE370 — Database Systems** at **BRAC University**.
 
-The system is designed to automate electricity billing, manage customer wallets, track meter readings, support field technicians, and maintain transparent utility operations through a normalized **Third Normal Form (3NF)** relational database.
+The platform combines electricity billing, smart meter management, digital wallets, field technician operations, customer analytics, and database-level integrity rules into one centralized system.
 
----
-
-## 👥 Team Members
-
-| Name                           | Student ID | Contribution                                              |
-| ------------------------------ | ---------: | --------------------------------------------------------- |
-| **Mir Mohammad Sajedul Islam** |   23201376 | Full-Stack Development, Frontend & Backend Architecture   |
-| **Bishal Golder**              |   23201378 | Full-Stack Development, Frontend & Backend Implementation |
-| **Salman Naguib**              |   23201031 | Full-Stack Development, Frontend & Backend Integration    |
-
-**Course:** CSE370 — Database Systems
-**University:** BRAC University
-**Semester:** Spring 2026
-**Group:** 06
-
----
-
-# 📌 Project Overview
-
-Traditional electricity billing systems often depend on manual meter readings, paper-based records, and disconnected financial processes. These approaches can result in:
-
-* Incorrect or duplicate meter readings
-* Delayed billing and payment processing
-* Limited visibility into electricity consumption
-* Billing disputes
-* Difficulty tracking field technicians
-* Poor management of customer balances and arrears
-
-**SparkEnergies** addresses these challenges by providing a centralized, database-driven platform for electricity distribution and billing management.
-
-The system combines:
-
-* Automated electricity billing
-* Smart meter management
-* Digital wallet management
-* Customer consumption analytics
-* Field technician operations
-* Role-Based Access Control (RBAC)
-* Database-level validation
-* Automated PDF invoice generation
-* Normalized relational database design
-
----
-
-# 🎯 Core Objectives
-
-### ⚡ Automated Billing
-
-Generate electricity bills based on meter readings and dynamically evaluated tariff information.
-
-### 🔒 Billing Integrity
-
-Prevent invalid or duplicate meter readings through strict validation rules and database constraints.
-
-### 💳 Digital Wallet Management
-
-Allow customers to maintain balances and settle electricity bills digitally.
-
-### 👨‍🔧 Field Accountability
-
-Provide technicians with assigned meter-reading tasks and maintain historical records of field operations.
-
-### 📊 Consumption Transparency
-
-Provide customers with historical electricity consumption analytics.
-
-### 🗄️ Normalized Database
-
-Implement the system using a structured **3NF relational database** with primary keys, foreign keys, constraints, and triggers.
-
----
-
-# 🏗️ System Architecture
-
-SparkEnergies follows a role-based multi-user architecture.
+### ⚡ The Core Idea
 
 ```text
-                         ┌──────────────────────────────┐
-                         │      SparkEnergies Core      │
-                         │            Engine            │
-                         └──────────────┬───────────────┘
-                                        │
-              ┌─────────────────────────┼─────────────────────────┐
-              │                         │                         │
-              ▼                         ▼                         ▼
-      ┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
-      │  Administrator  │      │ Field Technician│      │    Customer     │
-      │                 │      │                 │      │                 │
-      │ System & Ledger │      │ Meter & Route   │      │ Bills & Wallet  │
-      │ Management      │      │ Management      │      │ & Analytics     │
-      └─────────────────┘      └─────────────────┘      └─────────────────┘
+          METER READING
+                │
+                ▼
+       ┌─────────────────┐
+       │   VALIDATION    │
+       │  & SAFETY LOCK  │
+       └────────┬────────┘
+                │
+                ▼
+       ┌─────────────────┐
+       │  TARIFF ENGINE  │
+       └────────┬────────┘
+                │
+                ▼
+       ┌─────────────────┐
+       │  BILL GENERATOR │
+       └────────┬────────┘
+                │
+                ▼
+       ┌─────────────────┐
+       │ DIGITAL WALLET  │
+       │    PAYMENT      │
+       └────────┬────────┘
+                │
+                ▼
+       ┌─────────────────┐
+       │ CUSTOMER PORTAL │
+       └─────────────────┘
 ```
-
-The platform consists of three major environments:
-
-1. **Administrator Dashboard**
-2. **Field Technician Console**
-3. **Customer Self-Service Portal**
 
 ---
 
-# 🛡️ Administrator Dashboard
+# 🎯 Objectives
 
-The administrator dashboard provides centralized control over customers, employees, meters, billing, and financial operations.
+SparkEnergies was designed around four major goals:
+
+| ⚡ Objective                   | 💡 Purpose                                                     |
+| ----------------------------- | -------------------------------------------------------------- |
+| **Zero Ghost Billing**        | Prevent duplicate, reversed, and invalid meter readings        |
+| **Dynamic Ledger Management** | Automate tariffs, billing, payments, and wallet reconciliation |
+| **Field Accountability**      | Track technicians, routes, meter readings, and timestamps      |
+| **Customer Transparency**     | Provide bills, payments, consumption analytics, and invoices   |
+
+---
+
+# 🏗️ Architecture
+
+SparkEnergies follows a multi-role architecture based on **Role-Based Access Control (RBAC)**.
+
+```text
+                           ┌─────────────────────────────┐
+                           │     ⚡ SPARKENERGIES ⚡     │
+                           │       CORE ENGINE           │
+                           └──────────────┬──────────────┘
+                                          │
+              ┌───────────────────────────┼───────────────────────────┐
+              │                           │                           │
+              ▼                           ▼                           ▼
+   ┌────────────────────┐      ┌────────────────────┐      ┌────────────────────┐
+   │   👨‍💼 ADMINISTRATOR │      │   👨‍🔧 TECHNICIAN   │      │     👤 CUSTOMER    │
+   ├────────────────────┤      ├────────────────────┤      ├────────────────────┤
+   │ • Customer Mgmt    │      │ • Assigned Routes  │      │ • View Bills       │
+   │ • Employee Mgmt    │      │ • Meter Readings   │      │ • Wallet           │
+   │ • Meter Inventory  │      │ • Reading History  │      │ • Payments         │
+   │ • Wallet Control   │      │ • Audit Trail      │      │ • Analytics        │
+   │ • Arrears          │      │ • Field Operations │      │ • PDF Invoices     │
+   └────────────────────┘      └────────────────────┘      └────────────────────┘
+```
+
+### 🔄 System Flow
+
+```text
+Customer
+   │
+   ├──► Meter Subscription
+   │
+   ├──► Meter Assigned
+   │
+   ▼
+Field Technician
+   │
+   ├──► Meter Reading
+   │
+   ├──► Validation
+   │
+   ▼
+Billing Engine
+   │
+   ├──► Tariff Calculation
+   ├──► VAT
+   ├──► Demand Charge
+   ├──► Meter Rent
+   │
+   ▼
+Electricity Bill
+   │
+   ▼
+Digital Wallet
+   │
+   ▼
+Payment Settlement
+   │
+   ▼
+Customer Dashboard
+```
+
+---
+
+# 👨‍💼 Administrator Dashboard
+
+The administrator controls the core operational and financial components of SparkEnergies.
 
 ### 💰 Wallet & Financial Management
 
-Administrators can:
-
 * Search customer accounts
-* View customer balances
+* View wallet balances
 * Review transaction history
-* Add wallet balance
+* Perform wallet top-ups
 * Monitor financial activity
-
-### 👨‍💼 Employee Management
-
-Administrators can:
-
-* Register field employees
-* Create employee authentication profiles
-* Assign employee identifiers
-* Manage employee information
 
 ### 👥 Customer Management
 
-Administrators can search and manage customers based on:
+Administrators can search and manage customers according to:
 
 * Customer category
 * Account status
-* Account balance
+* Balance
 * Location
 * Meter assignment
 * Tariff category
 
+### 👨‍💼 Employee Management
+
+* Register field employees
+* Create authentication profiles
+* Assign employee identifiers
+* Maintain employee information
+
 ### ⚡ Smart Meter Inventory
 
-The system maintains centralized meter inventory.
-
-Meters transition between states such as:
+Meters are centrally managed and their status changes automatically:
 
 ```text
-Available → Assigned
+┌───────────┐
+│ AVAILABLE │
+└─────┬─────┘
+      │
+      │ Customer Subscription
+      ▼
+┌───────────┐
+│ ASSIGNED  │
+└───────────┘
 ```
-
-when a meter is successfully assigned to a customer.
 
 ### 💸 Revenue Arrears
 
-Administrators can identify customers with unpaid bills and monitor overdue accounts for further action.
+Administrators can identify customers with unpaid bills and generate an arrears queue for follow-up and potential service suspension.
 
 ---
 
-# 🔧 Field Technician Console
+# 👨‍🔧 Field Technician Console
 
-The field technician console supports meter-reading operations and field-level accountability.
+The technician dashboard is designed for real-world meter-reading operations.
 
-### 📍 Assigned Meter Routes
+### 📍 Assigned Routes
 
-Technicians can view:
+Technicians can access:
 
 * Assigned meter-reading tasks
 * Customer locations
 * Meter serial numbers
-* Reading assignments
+* Reading schedules
 
 ### 🕒 Reading History
 
-Technicians can review previous readings and timestamps to verify consumption and maintain regular billing intervals.
+Historical readings and timestamps allow technicians to:
+
+* Verify previous readings
+* Maintain billing intervals
+* Identify neglected routes
+* Monitor consumption progression
 
 ### 📋 Audit Trail
 
-Meter readings are associated with the responsible employee, providing accountability and traceability for field operations.
+Every processed meter reading is associated with the responsible employee, creating a traceable field-operation history.
 
 ---
 
 # 👤 Customer Portal
 
-The customer portal provides customers with direct access to their electricity accounts.
+The customer dashboard provides a complete self-service electricity management experience.
 
-## 💳 Digital Wallet & Payments
+### 💳 Digital Wallet
 
 Customers can:
 
-* View wallet balance
-* View billing history
-* Check bill status
+* View current balance
+* Add balance
+* Review transactions
 * Pay outstanding bills
-* Monitor payment transactions
 
-Bills are displayed using clear statuses:
+### 🧾 Billing
+
+Customers can view:
+
+* Current bills
+* Previous bills
+* Payment status
+* Consumption
+* Charges
+* Total amount
 
 ```text
-Paid
-Unpaid
+       ┌─────────────┐
+       │   💳 WALLET │
+       └──────┬──────┘
+              │
+              ▼
+       ┌─────────────┐
+       │  🧾 INVOICE │
+       └──────┬──────┘
+              │
+       ┌──────▼──────┐
+       │   PAYMENT   │
+       └─────────────┘
 ```
 
----
-
-## ⚡ Meter Subscription
+### ⚡ Meter Subscription
 
 Customers can subscribe to available meter categories such as:
 
-* Residential
-* Commercial
+* 🏠 Residential
+* 🏢 Commercial
 
-The system automatically handles:
+The system automatically:
 
-1. Meter availability checking
-2. Meter assignment
-3. Balance deduction
-4. Customer-meter relationship creation
-5. Inventory status updates
+1. Checks meter availability
+2. Assigns the meter
+3. Deducts the required balance
+4. Links the meter to the customer
+5. Updates inventory status
 
----
+### 📊 Consumption Analytics
 
-## 📊 Consumption Analytics
+Interactive **6-month electricity consumption charts** allow customers to monitor month-to-month usage.
 
-The customer dashboard provides interactive **6-month electricity consumption analytics** using time-series charts.
+### 🧾 PDF Invoices
 
-This allows customers to monitor month-to-month changes in electricity usage.
+Customers can generate print-ready invoices containing:
 
----
-
-## 🧾 PDF Invoice Generation
-
-Customers can generate downloadable PDF invoices containing:
-
-* Previous meter reading
-* Current meter reading
-* Electricity consumption
+* Previous reading
+* Current reading
+* Consumption
 * Unit charges
 * VAT
 * Demand charges
@@ -253,180 +326,160 @@ Customers can generate downloadable PDF invoices containing:
 
 # 🔐 Business Logic & Database Integrity
 
-SparkEnergies implements important business rules at both the application and database levels.
+SparkEnergies does not rely solely on the frontend for validation. Critical business rules are enforced through backend logic and database constraints.
 
-## 📈 Dynamic Tariff Evaluation
+## 🚫 Meter Reading Protection
 
-Electricity pricing is dynamically evaluated according to the customer's category and applicable tariff structure.
+The system rejects:
 
-The system supports pricing components such as:
+```text
+Current Reading < Previous Reading
+```
+
+This prevents reversed or invalid consumption data.
+
+---
+
+## 🔒 28-Day Billing Safety Lock
+
+The system compares the incoming meter-reading timestamp against the latest stored reading.
+
+```text
+New Reading Date
+       │
+       ▼
+Previous Reading Date
+       │
+       ▼
+Difference < 28 Days?
+       │
+   ┌───┴───┐
+  YES      NO
+   │        │
+   ▼        ▼
+REJECT    ACCEPT
+```
+
+This prevents duplicate billing within the restricted billing interval.
+
+---
+
+## 📈 Dynamic Tariff Calculation
+
+Tariff information is evaluated dynamically according to the customer's category.
+
+The system supports:
 
 * Unit cost
 * VAT
 * Demand charge
 * Meter rent
 
-This approach avoids unnecessarily storing duplicated tariff information within individual customer records.
+This avoids unnecessary duplication of pricing information across customer records.
 
 ---
 
-## 🚫 Meter Reading Validation
+## 🔔 Notifications
 
-The system rejects invalid meter readings where:
+Important account events can trigger notifications, including:
 
-```text
-Current Reading < Previous Reading
-```
-
-This prevents reversed meter readings and helps protect the billing process from invalid input.
-
----
-
-## 🔒 28-Day Billing Safety Lock
-
-The system checks the time difference between the incoming meter reading and the most recent reading stored for that meter.
-
-If the new reading occurs within the restricted billing interval, the system rejects the reading.
-
-```text
-New Reading Date - Previous Reading Date < 28 Days
-                         ↓
-                  Reading Rejected
-```
-
-This prevents duplicate billing within the defined billing period.
-
----
-
-## 🔔 Automated Notifications
-
-The system provides notification functionality for important account events, including:
-
-* Wallet balance updates
+* Wallet top-ups
 * Bill generation
 * Payment updates
-* Account-related events
+* Account events
 
 ---
 
 # 🗄️ Database Design
 
-SparkEnergies uses a normalized relational database designed according to **Third Normal Form (3NF)** principles.
+SparkEnergies follows **Third Normal Form (3NF)** principles.
 
-### Database Features
+### 🔗 Database Characteristics
 
 * MySQL / MariaDB
-* InnoDB storage engine
-* Primary keys
-* Foreign keys
-* Referential integrity
-* Database constraints
-* Database triggers
-* Normalized relational structure
-* Transaction management
-* Automated validation
+* InnoDB
+* Primary Keys
+* Foreign Keys
+* Referential Integrity
+* Database Constraints
+* Triggers
+* Normalized Relations
+* Transaction Management
+* Automated Validation
 
----
+### 📐 Database Documentation
 
-# 🧩 Database Documentation
-
-The repository contains database design documentation in the **`Document/`** directory.
-
-| File                    | Description                      |
-| ----------------------- | -------------------------------- |
-| `ER_diagram.png`        | Entity-Relationship Diagram      |
-| `schema_diagram.png`    | Relational Schema Diagram        |
-| `normalized_schema.png` | 3NF Database Structure           |
-| `project_report.pdf`    | Complete Academic Project Report |
-
-The database SQL file is available in the **`Database/`** directory.
+| Resource             | Location                         |
+| -------------------- | -------------------------------- |
+| 🧩 ER Diagram        | `Document/ER_diagram.png`        |
+| 🗂️ Schema Diagram   | `Document/schema_diagram.png`    |
+| 📐 Normalized Schema | `Document/normalized_schema.png` |
+| 🗄️ SQL Database     | `Database/sparkenergies.sql`     |
+| 📄 Project Report    | `Document/project_report.pdf`    |
 
 ---
 
 # 🛠️ Technology Stack
 
-| Layer                       | Technology                   |
-| --------------------------- | ---------------------------- |
-| **Backend**                 | PHP 8.2+                     |
-| **Database**                | MySQL / MariaDB              |
-| **Storage Engine**          | InnoDB                       |
-| **Frontend**                | HTML5, CSS3, Bootstrap 5     |
-| **JavaScript**              | Vanilla JavaScript           |
-| **Charts**                  | Chart.js                     |
-| **PDF Generation**          | FPDF / Native PDF Generation |
-| **Web Server**              | Apache                       |
-| **Development Environment** | XAMPP                        |
-| **Version Control**         | Git                          |
-| **IDE**                     | Visual Studio Code           |
+<div align="center">
 
-The backend uses **PHP prepared statements** for safer database interaction and improved protection against SQL injection.
+| Layer                  | Technology                   |
+| ---------------------- | ---------------------------- |
+| 💻 **Backend**         | PHP 8.2+                     |
+| 🗄️ **Database**       | MySQL / MariaDB              |
+| 🔗 **Storage Engine**  | InnoDB                       |
+| 🎨 **Frontend**        | HTML5, CSS3, Bootstrap 5     |
+| ⚙️ **Client Logic**    | Vanilla JavaScript           |
+| 📊 **Visualization**   | Chart.js                     |
+| 🧾 **PDF**             | FPDF / Native PDF Generation |
+| 🌐 **Server**          | Apache                       |
+| 🧪 **Environment**     | XAMPP                        |
+| 🔀 **Version Control** | Git                          |
+| 📝 **IDE**             | Visual Studio Code           |
+
+</div>
 
 ---
 
 # 📁 Repository Structure
 
-The repository is organized as follows:
+The current repository structure is:
 
 ```text
 CSE370/
 │
-├── Database/
-│   └── sparkenergies.sql
+├── 📁 Database/
+│   └── 🗄️ sparkenergies.sql
 │
-├── Document/
-│   ├── ER_diagram.png
-│   ├── schema_diagram.png
-│   ├── normalized_schema.png
-│   └── project_report.pdf
+├── 📁 Document/
+│   ├── 🧩 ER_diagram.png
+│   ├── 🗂️ schema_diagram.png
+│   ├── 📐 normalized_schema.png
+│   └── 📄 project_report.pdf
 │
-├── source/
-│   ├── index.php
-│   ├── db.php
-│   ├── admin_dashboard.php
-│   ├── employee_dashboard.php
-│   ├── customer_dashboard.php
-│   ├── download_bill.php
-│   ├── signup.php
-│   └── logout.php
+├── 📁 source/
+│   ├── 🔐 index.php
+│   ├── 🔗 db.php
+│   ├── 👨‍💼 admin_dashboard.php
+│   ├── 👨‍🔧 employee_dashboard.php
+│   ├── 👤 customer_dashboard.php
+│   ├── 🧾 download_bill.php
+│   ├── 📝 signup.php
+│   └── 🚪 logout.php
 │
-├── LAB 01.pdf
-├── LAB 02.pdf
-├── LAB 03.pdf
-├── README.md
-├── LICENSE
-└── gitignore.txt
+├── 📄 LAB 01.pdf
+├── 📄 LAB 02.pdf
+├── 📄 LAB 03.pdf
+├── 📜 LICENSE
+├── 📘 README.md
+└── ⚙️ gitignore.txt
 ```
-
-> **Note:** The repository currently uses the folder names `Database`, `Document`, and `source`. The README intentionally matches the actual repository structure.
-
----
-
-# 📄 Source Code
-
-The main PHP application files are located inside:
-
-```text
-source/
-```
-
-### Important Files
-
-| File                     | Purpose                                 |
-| ------------------------ | --------------------------------------- |
-| `index.php`              | Authentication gateway and landing page |
-| `db.php`                 | Database connection                     |
-| `admin_dashboard.php`    | Administrator dashboard                 |
-| `employee_dashboard.php` | Field technician dashboard              |
-| `customer_dashboard.php` | Customer dashboard                      |
-| `download_bill.php`      | PDF invoice generation                  |
-| `signup.php`             | Customer registration                   |
-| `logout.php`             | Session termination                     |
 
 ---
 
 # 🚀 Installation & Setup
 
-## 1. Clone the Repository
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/sajedulislam5840/CSE370.git
@@ -435,22 +488,24 @@ cd CSE370
 
 ---
 
-## 2. Install XAMPP
+## 2️⃣ Start XAMPP
 
-Install **XAMPP** with:
+Open XAMPP Control Panel and start:
 
-* Apache
-* MySQL
+```text
+Apache
+MySQL
+```
 
-Start both services from the XAMPP Control Panel.
+Make sure both services are running.
 
 ---
 
-## 3. Create the Database
+## 3️⃣ Create the Database
 
-Open **phpMyAdmin** or the MySQL command line.
+Open **phpMyAdmin** or MySQL CLI.
 
-Create a database named:
+Create:
 
 ```sql
 CREATE DATABASE sparkenergies;
@@ -458,15 +513,17 @@ CREATE DATABASE sparkenergies;
 
 ---
 
-## 4. Import the SQL File
+## 4️⃣ Import the Database
 
-Import the following file into the `sparkenergies` database:
+Import:
 
 ```text
 Database/sparkenergies.sql
 ```
 
-The SQL file contains the required:
+into the `sparkenergies` database.
+
+The SQL file contains:
 
 * Tables
 * Relationships
@@ -476,7 +533,7 @@ The SQL file contains the required:
 
 ---
 
-## 5. Configure Database Connection
+## 5️⃣ Configure Database Connection
 
 Open:
 
@@ -484,9 +541,7 @@ Open:
 source/db.php
 ```
 
-Configure the database credentials according to your local MySQL setup.
-
-Example:
+Example configuration:
 
 ```php
 $host = "localhost";
@@ -495,11 +550,11 @@ $password = "";
 $dbname = "sparkenergies";
 ```
 
-If your MySQL installation uses a password, replace the empty password with your configured password.
+Update the credentials if your local MySQL/MariaDB configuration differs.
 
 ---
 
-## 6. Move the Repository to XAMPP
+## 6️⃣ Move Project to XAMPP
 
 Copy the repository into:
 
@@ -507,7 +562,7 @@ Copy the repository into:
 C:\xampp\htdocs\
 ```
 
-The final directory should look like:
+The final path should be:
 
 ```text
 C:\xampp\htdocs\CSE370\
@@ -515,86 +570,178 @@ C:\xampp\htdocs\CSE370\
 
 ---
 
-## 7. Run the Application
+## 7️⃣ Launch SparkEnergies 🚀
 
-Open your browser and visit:
+Open:
 
 ```text
 http://localhost/CSE370/source/index.php
 ```
 
-The SparkEnergies login/authentication page should appear.
+🎉 **SparkEnergies is ready to run!**
 
 ---
 
 # 🔑 User Roles
 
-| Role                       | Responsibilities                                                       |
-| -------------------------- | ---------------------------------------------------------------------- |
-| 👨‍💼 **Administrator**    | Customer, employee, meter, wallet, billing, and arrears management     |
-| 👨‍🔧 **Field Technician** | Meter-reading assignments, field operations, and reading history       |
-| 👤 **Customer**            | Bills, payments, wallet, meter subscription, and consumption analytics |
+| Role                       | Access                                                       |
+| -------------------------- | ------------------------------------------------------------ |
+| 👨‍💼 **Administrator**    | Customers • Employees • Meters • Wallets • Billing • Arrears |
+| 👨‍🔧 **Field Technician** | Routes • Meter Readings • History • Field Operations         |
+| 👤 **Customer**            | Bills • Payments • Wallet • Meter Subscription • Analytics   |
 
-Each role has access only to the functionality required for its responsibilities.
+Each role operates within its own authorized environment.
 
 ---
 
-# 📊 Key Features
+# 📊 Feature Matrix
 
-| Feature                          | Description                                                          |
-| -------------------------------- | -------------------------------------------------------------------- |
-| 🔐 **Role-Based Access Control** | Separate environments for administrators, technicians, and customers |
-| ⚡ **Smart Meter Management**     | Centralized meter inventory and customer assignment                  |
-| 💳 **Digital Wallet**            | Customer balance and payment management                              |
-| 🧾 **Automated Billing**         | Dynamic electricity bill calculation                                 |
-| 📈 **Consumption Analytics**     | Six-month consumption visualization                                  |
-| 🔒 **Billing Safety Lock**       | Prevents readings within the restricted billing period               |
-| 🚫 **Reading Validation**        | Rejects decreasing meter readings                                    |
-| 👨‍🔧 **Field Operations**       | Technician route and meter-reading management                        |
-| 🔔 **Notifications**             | Automated account and billing notifications                          |
-| 🧾 **PDF Invoices**              | Downloadable itemized electricity bills                              |
-| 🗄️ **3NF Database**             | Normalized relational database architecture                          |
-| 🔗 **Referential Integrity**     | Foreign-key-based relational consistency                             |
+|          Feature          | Admin | Technician | Customer |
+| :-----------------------: | :---: | :--------: | :------: |
+|   👥 Customer Management  |   ✅   |      ❌     |     ❌    |
+| 👨‍💼 Employee Management |   ✅   |      ❌     |     ❌    |
+|     ⚡ Meter Management    |   ✅   |     👁️    |    👁️   |
+|      📍 Field Routes      |   ❌   |      ✅     |     ❌    |
+|     📋 Meter Readings     |  👁️  |      ✅     |    👁️   |
+|         🧾 Billing        |   ✅   |     👁️    |     ✅    |
+|         💳 Wallet         |   ✅   |      ❌     |     ✅    |
+|        💰 Payments        |  👁️  |      ❌     |     ✅    |
+|        📊 Analytics       |  👁️  |     👁️    |     ✅    |
+|       🧾 PDF Invoice      |   ❌   |      ❌     |     ✅    |
+|      🔔 Notifications     |   ✅   |      ❌     |     ✅    |
+
+**Legend:**
+✅ Full Access    👁️ View/Related Access    ❌ No Access
+
+---
+
+# 📈 Project Highlights
+
+<div align="center">
+
+### ⚡ Smart
+
+Automated meter validation and dynamic billing.
+
+### 🔐 Secure
+
+Role-based access and database integrity controls.
+
+### 📊 Transparent
+
+Customer billing and six-month consumption analytics.
+
+### 🗄️ Normalized
+
+Designed using a structured **3NF relational database**.
+
+### 👨‍🔧 Accountable
+
+Employee-linked field operations and reading history.
+
+### 💳 Convenient
+
+Digital wallet and real-time bill settlement.
+
+</div>
+
+---
+
+# 👥 Team
+
+<div align="center">
+
+| 👨‍💻 Member                   |      🆔 ID | 💼 Role                                         |
+| ------------------------------ | ---------: | ----------------------------------------------- |
+| **Mir Mohammad Sajedul Islam** | `23201376` | Full-Stack Development & Backend Architecture   |
+| **Bishal Golder**              | `23201378` | Full-Stack Development & Backend Implementation |
+| **Salman Naguib**              | `23201031` | Full-Stack Development & Backend Integration    |
+
+<br>
+
+**CSE370 — Database Systems**
+**BRAC University**
+**Spring 2026 • Group 06**
+
+</div>
 
 ---
 
 # 🎓 Academic Information
 
-**Project:** SparkEnergies — Electricity Bill Management and Distribution Platform
+### 📚 Course
 
-**Course:** CSE370 — Database Systems
-**University:** BRAC University
-**Semester:** Spring 2026
-**Group:** 06
+**CSE370 — Database Systems**
 
-### Academic Concepts Demonstrated
+### 🏫 University
 
-This project demonstrates practical implementation of:
+**BRAC University**
 
-* Relational database design
-* Entity-Relationship modeling
-* Database normalization
-* Third Normal Form (3NF)
-* SQL queries
-* Primary and foreign keys
-* Database constraints
-* Database triggers
-* Transaction management
+### 📅 Semester
+
+**Spring 2026**
+
+### 👥 Group
+
+**06**
+
+### 🧠 Concepts Demonstrated
+
+* Relational Database Design
+* Entity-Relationship Modeling
+* Database Normalization
+* Third Normal Form
+* SQL Queries
+* Primary & Foreign Keys
+* Referential Integrity
+* Database Constraints
+* Database Triggers
+* Transaction Management
 * Role-Based Access Control
-* Full-stack web development
-* Database-driven business logic
+* Full-Stack Web Development
+* Database-Driven Business Logic
 
 ---
 
-# 📚 Project Documentation
+# 📚 Documentation
 
-All major project documentation is available inside the `Document/` directory.
+All project documentation is available in the `Document/` directory.
 
-* 📄 **Project Report:** `Document/project_report.pdf`
-* 🧩 **ER Diagram:** `Document/ER_diagram.png`
-* 🗂️ **Schema Diagram:** `Document/schema_diagram.png`
-* 📐 **Normalized Schema:** `Document/normalized_schema.png`
-* 🗄️ **Database SQL:** `Database/sparkenergies.sql`
+### 📄 Project Report
+
+[**Open Project Report →**](Document/project_report.pdf)
+
+### 🗄️ Database Schema
+
+[**Open SQL Schema →**](Database/sparkenergies.sql)
+
+### 🧩 ER Diagram
+
+[**View ER Diagram →**](Document/ER_diagram.png)
+
+### 🗂️ Schema Diagram
+
+[**View Schema Diagram →**](Document/schema_diagram.png)
+
+### 📐 Normalized Schema
+
+[**View 3NF Schema →**](Document/normalized_schema.png)
+
+---
+
+# ⭐ Project Status
+
+<div align="center">
+
+**🟢 Academic Project**
+
+**⚡ SparkEnergies is designed as a complete database-driven electricity management platform.**
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer&text=SparkEnergies%20⚡&fontSize=32&fontAlignY=70&animation=twinkling" alt="SparkEnergies Footer">
+
+</div>
 
 ---
 
@@ -602,14 +749,21 @@ All major project documentation is available inside the `Document/` directory.
 
 This project was developed for academic purposes as part of the **CSE370 — Database Systems** course at **BRAC University**.
 
-See the [`LICENSE`](LICENSE) file for the applicable license terms.
+See [`LICENSE`](LICENSE) for the applicable license terms.
 
 ---
 
-## ⭐ Acknowledgment
+<div align="center">
 
-Developed by **Group 06**
-**CSE370 — Database Systems**
-**BRAC University | Spring 2026**
+### ⚡ **SparkEnergies**
 
-### ⚡ SparkEnergies — Powering Smarter Utility Management
+#### *Powering Smarter Utility Management*
+
+**Built with PHP • MySQL • Bootstrap • JavaScript • ☕**
+
+<br>
+
+<img src="https://img.shields.io/badge/Made%20for-CSE370-red?style=for-the-badge">
+<img src="https://img.shields.io/badge/BRAC%20University-Spring%202026-blue?style=for-the-badge">
+
+</div>
